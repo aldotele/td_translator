@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>TD Translator</title>
+    </head>
+    <body>
+        <div>
+            <h2>TD Translator</h2>
+        </div>
+
+        <form action="result/" method="POST">{% csrf_token %}
+            <input name="word" id="tr-input" type="text">
+            <button type="submit">Translate</button>
+        </form>
+
+        {% block content %}
+
+        {% endblock content %}
+
+
+    </body>
+</html>
