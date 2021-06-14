@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+
+main {
+    text-align: center;
+    background: #09a59a;
+    flex-direction: column;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    background: #1e298b;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+}

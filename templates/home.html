@@ -1,20 +1,35 @@
+<!DOCTYPE html>
+
+{% load static %}
 <html>
     <head>
         <title>TD Translator</title>
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
-        <div>
+        <header>
             <h2>TD Translator</h2>
-        </div>
+        </header>
 
-        <form action="result/" method="POST">{% csrf_token %}
-            <input name="word" id="tr-input" type="text">
-            <button type="submit">Translate</button>
-        </form>
+        <main>
+            <section>
+                <form action="/result/" method="POST">{% csrf_token %}
+                    <input name="word" id="tr-input" type="text">
+                    <button type="submit">Translate</button>
+                </form>
+            </section>
 
+            
         {% block content %}
 
         {% endblock content %}
+
+        </main>
+
+        <footer>
+            <p>Copyright ... </p>
+        </footer>
+
 
 
     </body>
