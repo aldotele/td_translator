@@ -2,34 +2,70 @@
 
 {% load static %}
 <html>
+
     <head>
         <title>TD Translator</title>
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
+
+        <meta name='copyright' content='English Only TomorrowDevs'>
+        <meta property="og:locale" content="it_IT">
+        <meta property="og:site_name" content="TD Translator by English Only TomorrowDevs">
+
     </head>
     <body>
-        <header>
-            <h2>TD Translator</h2>
-        </header>
 
-        <main>
-            <section>
-                <form action="/result/" method="POST">{% csrf_token %}
-                    <input name="word" id="tr-input" type="text">
-                    <button type="submit">Translate</button>
-                </form>
-            </section>
+        <header class="header">
+            <div class="wrapper">
+              <img src = "{% static 'images/et_logo.png' %}" class= "logo"/>
+              <h1>This is an awesome translator
+              <br/><span class="subtitle">By English Only group</span></h1>
+              <button type="button" name="button">Try it now!</button>
+            </div>
+          </header>
+    
 
+            <main>
+                <div class="wrapper">
+                  <ul class="lang">
+                      <li><a href="" class="on">italiano</a></li>
+                      <li><a href="">english</a></li>
+                      <li><a href="" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
+                      <li><a href="">italiano</a></li>
+                      <li><a href="" class="on">english</a></li>
+                  </ul>
             
-        {% block content %}
+                  <div class="translate-area">
+                    <form action="/result/" method="POST">{% csrf_token %}
+                      <input type="text" name="word" id="tr-input"/>
+                      <input type="submit" name="" value='Traduci' /> 
+                    </form>
+            
+                    <div class="half result">
+                                    
+                        {% block content %}
 
-        {% endblock content %}
+                        {% endblock content %}
+                    </div>
+                  </div>
+                </div>
+              </main>
 
-        </main>
-
-        <footer>
-            <p>Copyright ... </p>
-        </footer>
-
+        <footer class="footer">
+            <div class= "copyright">
+              <div class="wrapper">
+                <p>&copy; Copyright 2021 • English Only Team</p>
+              </div>
+            </div>
+            <div class= "tdlogo">
+              <div class="wrapper">
+                <img src = "{% static 'images/td_logo.png' %}" class="logo" />
+              </div>
+            </div>
+          </footer>
+        
 
 
     </body>
