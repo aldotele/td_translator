@@ -5,5 +5,7 @@ from translator.views import home, translate
 urlpatterns = [
     path('', home, name='home'),  # new
     path('result/', translate, name='result'),
+
+    path('lang/<slug:slug>/', home, name='home_eng')
 ]
 

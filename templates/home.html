@@ -30,15 +30,15 @@
             <main>
                 <div class="wrapper">
                   <ul class="lang">
-                      <li><a href="" class="on">italiano</a></li>
-                      <li><a href="">english</a></li>
-                      <li><a href="" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
-                      <li><a href="">italiano</a></li>
-                      <li><a href="" class="on">english</a></li>
+                    <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">italiano</a></li>
+                    <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">english</a></li>
+                      <li><a href="/lang/{% if slug == 'eng' %}it/{% else %}eng/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
+                    <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">italiano</a></li>
+                    <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">english</a></li>
                   </ul>
-            
                   <div class="translate-area">
                     <form action="/result/" method="POST">{% csrf_token %}
+                      <input type="hidden" name="slug" value="{{ slug }}"/>
                       <input type="text" name="word" id="tr-input"/>
                       <input type="submit" name="" value='Traduci' /> 
                     </form>
