@@ -14,16 +14,14 @@ def translate(request):
     tr = Translator()
     context = {}
     if request.method == 'POST':
-        print(request.POST)
+        #print(request.POST)
         word = request.POST.get('word', '')
         dest_language = request.POST.get('slug', '')
-        print(dest_language)
+        #print(dest_language)
         out = tr.translate(word, dest=dest_language).text
         context['translated'] = out
+        context['slug'] = dest_language
     return render(request, 'result.html', context)
-
-
-
 
 
 if __name__ == '__main__':
