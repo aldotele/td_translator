@@ -32,7 +32,7 @@
                   <ul class="lang">
                     <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">italiano</a></li>
                     <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">english</a></li>
-                      <li><a href="/lang/{% if slug == 'eng' %}it/{% else %}eng/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
+                      <li><a href="/lang/{% if slug == 'en' %}it/{% else %}en/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
                     <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">italiano</a></li>
                     <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">english</a></li>
                   </ul>
@@ -41,13 +41,13 @@
                       <input type="hidden" name="slug" value="{{ slug }}"/>
                       <input type="text" name="word" id="tr-input"/>
                       <input type="submit" name="" value='Traduci' /> 
-                    </form>
-            
+                    </form>            
                     <div class="half result">
                                     
                         {% block content %}
 
                         {% endblock content %}
+                        
                     </div>
                   </div>
                 </div>
