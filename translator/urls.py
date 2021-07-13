@@ -6,6 +6,6 @@ urlpatterns = [
     path('', home, name='home'),  # new
     path('result/', translate, name='result'),
 
-    path('lang/<slug:slug>/', home, name='home_eng')
+    path('lang/<slug:slug>/', home, name='home_eng'),
 ]
 
