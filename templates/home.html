@@ -38,12 +38,12 @@
                   </ul>
                   <div class="translate-area">
                     <form action="/result/" method="POST">{% csrf_token %}
-                      <input type="hidden" name="slug" value="{{ slug }}"/>
+                      <input type="hidden" name="slug" id="slug" value="{{ slug }}"/>
                       <input type="text" name="word" id="tr-input"/>
-                      <input type="submit" name="" value='Traduci' /> 
+                      <input type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
                     </form>            
                     <div class="half result">
-                                    
+                        <p id="translated_content"></p>           
                         {% block content %}
 
                         {% endblock content %}
@@ -67,6 +67,33 @@
           </footer>
         
 
+          <script>
+            document.getElementById("translateButton").addEventListener("click", function (event) {
+              doTranslation(event);
+            });
 
+            function doTranslation(event) {
+              event.preventDefault();
+              const translationContent = document.getElementById("tr-input").value;
+              const slug = document.getElementById("slug").value;
+              console.log(translationContent);
+              const translation_result = document.getElementById("translated_content")
+
+              // We can now call the remote Google API to get the translation
+              fetch('http://127.0.0.1:8000/result/', {
+                method: 'POST',
+                body: JSON.stringify({
+                  tr_content: translationContent,
+                  slug: slug
+                })
+              })
+              .then((res) => res.json())
+              .then((res) => {
+                console.log(res)
+                // Put res.translated into the translation box
+                translation_result.innerHTML = res.translated
+              })
+            }
+          </script>
     </body>
 </html>
