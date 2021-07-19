@@ -32,17 +32,18 @@
                   <ul class="lang">
                     <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">italiano</a></li>
                     <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">english</a></li>
-                      <li><a href="/lang/{% if slug == 'en' %}it/{% else %}en/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
-                    <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">italiano</a></li>
+                      <li><a class="btn" href="/lang/{% if slug == 'en' %}it/{% else %}en/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
+                      <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">italiano</a></li>
                     <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">english</a></li>
                   </ul>
                   <div class="translate-area">
                     <form action="/result/" method="POST">{% csrf_token %}
                       <input type="hidden" name="slug" id="slug" value="{{ slug }}"/>
-                      <input type="text" name="word" id="tr-input"/>
-                      <input type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
-                    </form>            
-                    <div class="half result">
+                      <!-- <input type="text" name="word" id="tr-input"/> -->
+                      <textarea id="tr-input" name=""></textarea>
+                      <input class="tr_btn" type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
+                    </form>  
+                    <div class="half_result">
                         <p id="translated_content"></p>           
                         {% block content %}
 
