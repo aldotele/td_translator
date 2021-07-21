@@ -81,7 +81,7 @@
               const translation_result = document.getElementById("translated_content")
 
               // We can now call the remote Google API to get the translation
-              fetch('http://tdtranslator.herokuapp.com/result/', {
+              fetch('https://tdtranslator.herokuapp.com/result/', {
                 method: 'POST',
                 body: JSON.stringify({
                   tr_content: translationContent,
