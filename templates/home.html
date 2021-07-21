@@ -22,7 +22,7 @@
               <img src = "{% static 'images/et_logo.png' %}" class= "logo"/>
               <h1>This is an awesome translator
               <br/><span class="subtitle">By English Only group</span></h1>
-              <button type="button" name="button">Try it now!</button>
+              <button id="try-btn" type="button" name="button">Try it now!</button>
             </div>
           </header>
     
@@ -44,7 +44,8 @@
                       <input class="tr_btn" type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
                     </form>  
                     <div class="half_result">
-                        <p id="translated_content"></p>           
+                        <p id="translated_content"></p>      
+
                         {% block content %}
 
                         {% endblock content %}
@@ -95,6 +96,15 @@
                 translation_result.innerHTML = res.translated
               })
             }
+
+            // Try it Now button activation
+            var textarea = document.getElementById("tr-input"),
+            myBtn = document.getElementById("try-btn");
+            myBtn.addEventListener("click", function(){
+              textarea.value += "\r\n";
+              textarea.focus(); // optional
+            }, false);
+
           </script>
     </body>
 </html>

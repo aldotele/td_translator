@@ -44,6 +44,7 @@
   }
   
   button{
+    cursor: pointer;
     font-size:14px;
     text-transform: uppercase;
     font-family: 'Rubik', sans-serif;
@@ -54,6 +55,11 @@
     border-radius: 10px;
     margin-bottom: 30px;
   }
+
+  button:hover {
+    background: #34dfd3;
+  }
+
   ul.lang{
     list-style:none;
     background: #e1f8f6;
@@ -89,6 +95,7 @@
     display: flex;
     justify-content: space-between;
   }
+
   form{
     display: block;
     width: 50%;
@@ -106,6 +113,7 @@
   }
   
   form input[type="submit"]{
+    cursor: pointer;
     height: 50px;
     width: 150px;
     background: url("../images/icn_traduci.png") no-repeat #1e298b;
@@ -123,7 +131,7 @@
     margin-left: -75px
   }
   .translate-area .result{
-    height: 250px;
+    height: 50px;
     border: #e6e6e6 1px solid;
     border-radius: 10px;
     padding:20px 20px 20px 100px;
@@ -137,14 +145,14 @@
     text-align: left;
     padding-right: 15px;
     padding-left: 15px;
-    padding-top: 50px;
+    padding-top: 20px;
   }
 
   .half_result {
-      max-width: 460px;
-      margin-left: 100px;
-    }
-  
+    max-width: 460px;
+    margin-left: 100px;
+  }
+
   footer{
     clear:both;
     padding-top: 50px;
@@ -210,6 +218,7 @@
       display: inline-block;
       margin-bottom: 15px;
     }
+
     .btn img {
       width:100%;
       display: block;
