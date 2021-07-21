@@ -131,6 +131,19 @@
     width: 50%;
   }
   
+  textarea {
+    width: 450px;
+    height: 250px;
+    text-align: left;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 50px;
+  }
+
+  .half_result {
+      max-width: 460px;
+      margin-left: 100px;
+    }
   
   footer{
     clear:both;
@@ -156,3 +169,88 @@
     width: 150px;
   }
   
+  @media (max-width: 968px) {
+    header {
+      padding-left: 25px;
+    }
+    header .wrapper {
+      background-image:url("../images/bg_header.png");
+      background-size: cover;
+      background-size: 50%;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper > button {
+      font-size:14px;
+      text-transform: uppercase;
+      font-family: 'Rubik', sans-serif;
+      background: #09a59a;
+      color: #ffffff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      width: 150px;
+    }
+    ul.lang {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    li:first-child {
+      margin-top: 15px;
+    }
+
+    li {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .btn img {
+      width:100%;
+      display: block;
+    }
+
+    form {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      margin-bottom: 75px;
+      height: 250px;
+    }
+
+    form input {
+      display: block;
+    }
+
+    textarea {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      padding-right: 75px;
+      padding-left: 75px;
+    }
+
+    .tr_btn {
+      position: absolute;
+      right: 50%;
+      bottom: 0%;
+    }
+
+    .translate-area {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .half_result {
+      width: 100%;
+      margin-left: 0;
+      margin: 0 auto;
+    }
+  }
