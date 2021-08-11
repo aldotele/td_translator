@@ -13,6 +13,7 @@
         <meta name='copyright' content='English Only TomorrowDevs'>
         <meta property="og:locale" content="it_IT">
         <meta property="og:site_name" content="TD Translator by English Only TomorrowDevs">
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
 
     </head>
     <body>
@@ -40,11 +41,11 @@
                     <form action="/result/" method="POST">{% csrf_token %}
                       <input type="hidden" name="slug" id="slug" value="{{ slug }}"/>
                       <!-- <input type="text" name="word" id="tr-input"/> -->
-                      <textarea id="tr-input" name=""></textarea>
+                      <textarea id="tr-input" placeholder="{% if slug == 'en' %}Scrivi qui del testo da tradurre...{% else %}Write here something to translate...{% endif %}" name=""></textarea>
                       <input class="tr_btn" type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
                     </form>  
-                    <div class="half_result">
-                        <p id="translated_content"></p>      
+                    <div id="translated_content" class="half_result">
+                        <!-- <p id="translated_content">contenuto tradotto</p> -->      
 
                         {% block content %}
 
