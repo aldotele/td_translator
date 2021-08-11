@@ -13,6 +13,7 @@
         <meta name='copyright' content='English Only TomorrowDevs'>
         <meta property="og:locale" content="it_IT">
         <meta property="og:site_name" content="TD Translator by English Only TomorrowDevs">
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
 
     </head>
     <body>
@@ -22,7 +23,7 @@
               <img src = "{% static 'images/et_logo.png' %}" class= "logo"/>
               <h1>This is an awesome translator
               <br/><span class="subtitle">By English Only group</span></h1>
-              <button type="button" name="button">Try it now!</button>
+              <button id="try-btn" type="button" name="button">Try it now!</button>
             </div>
           </header>
     
@@ -32,18 +33,20 @@
                   <ul class="lang">
                     <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">italiano</a></li>
                     <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">english</a></li>
-                      <li><a href="/lang/{% if slug == 'en' %}it/{% else %}en/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
-                    <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">italiano</a></li>
+                      <li><a class="btn" href="/lang/{% if slug == 'en' %}it/{% else %}en/{% endif %}" class="btn"><img src="{% static 'images/switch_lang.png' %}"></a></li>
+                      <li><a href="/lang/it/" class="{% if slug == 'it' %}on{% endif %}">italiano</a></li>
                     <li><a href="/lang/en/" class="{% if slug == 'en' %}on{% endif %}">english</a></li>
                   </ul>
                   <div class="translate-area">
                     <form action="/result/" method="POST">{% csrf_token %}
                       <input type="hidden" name="slug" id="slug" value="{{ slug }}"/>
-                      <input type="text" name="word" id="tr-input"/>
-                      <input type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
-                    </form>            
-                    <div class="half result">
-                        <p id="translated_content"></p>           
+                      <!-- <input type="text" name="word" id="tr-input"/> -->
+                      <textarea id="tr-input" placeholder="{% if slug == 'en' %}Scrivi qui del testo da tradurre...{% else %}Write here something to translate...{% endif %}" name=""></textarea>
+                      <input class="tr_btn" type="submit" name="" value="{% if slug == 'en' %}Traduci{% else %}Translate{% endif %}" id="translateButton" /> 
+                    </form>  
+                    <div id="translated_content" class="half_result">
+                        <!-- <p id="translated_content">contenuto tradotto</p> -->      
+
                         {% block content %}
 
                         {% endblock content %}
@@ -80,7 +83,7 @@
               const translation_result = document.getElementById("translated_content")
 
               // We can now call the remote Google API to get the translation
-              fetch('http://127.0.0.1:8000/result/', {
+              fetch('https://tdtranslator.herokuapp.com/result/', {
                 method: 'POST',
                 body: JSON.stringify({
                   tr_content: translationContent,
@@ -94,6 +97,15 @@
                 translation_result.innerHTML = res.translated
               })
             }
+
+            // Try it Now button activation
+            var textarea = document.getElementById("tr-input"),
+            myBtn = document.getElementById("try-btn");
+            myBtn.addEventListener("click", function(){
+              textarea.value += "\r\n";
+              textarea.focus(); // optional
+            }, false);
+
           </script>
     </body>
 </html>
