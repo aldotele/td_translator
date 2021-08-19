@@ -8,5 +8,5 @@ Translations are generated through [*googletrans*](https://pypi.org/project/goog
 
 ### Launch locally:
 Two steps:
-`pip install -r requirements.txt` (only once)
+`pip install -r requirements.txt` (only once)\
 `python manage.py runserver`
