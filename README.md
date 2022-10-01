@@ -6,7 +6,11 @@ in live coding on Monday nights.
 ### Core Translation Feature
 Translations are generated through [*googletrans*](https://pypi.org/project/googletrans/) Python library. 
 
-### Launch locally:
-Two steps:
+### Launch with Docker
+1) `docker build -t {your_image_ame} .`
+2) `docker run -it -p 8001:8001 {your_image_name}`
+
+### Launch with Pytnon:
+Two steps:\
 `pip install -r requirements.txt` (only once)\
 `python manage.py runserver`
