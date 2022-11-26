@@ -1,5 +1,5 @@
 # TD Translator WebApp
-The translator is available at [tdtranslator.herokuapp.com](https://tdtranslator.herokuapp.com/)\
+The translator is available at [tdtranslator.vercel.app](https://tdtranslator.vercel.app/)\
 This project was developed by the English-only group of [Tomorrowdevs](https://www.tomorrowdevs.com/)
 in live coding on Monday nights.
 
